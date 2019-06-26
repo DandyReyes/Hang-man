@@ -9,6 +9,34 @@ const wordBank = [
   'computer',
 ];
 
+function hangman() {
+  // selects random index for word bank
+  const randomChoice = Math.floor(Math.random() * wordBank.length);
+  // contains length of the word
+  const wordLength = wordBank[randomChoice].length;
+  const revealedWord = wordBank[randomChoice].split('');
+  game(wordLength, revealedWord);
+}
+
+function game(wordLength, revealedWord) {
+  const guessedWord = [];
+  const failures = 0;
+  const letterCount = 0;
+
+  startingLines(guessedWord, wordLength);
+
+  console.log(guessedWord.join(' '));
+
+  winOrLost(
+    failures,
+    letterCount,
+    wordLength,
+    revealedWord,
+    guessedWord,
+    letterCount
+  );
+}
+
 // Input the starting lines for the game
 function startingLines(guessedWord, wordLength) {
   for (let i = 0; i < wordLength; i++) {
@@ -47,34 +75,6 @@ function winOrLost(
   } else {
     console.log('You Lost :(');
   }
-}
-
-function game(wordLength, revealedWord) {
-  const guessedWord = [];
-  const failures = 0;
-  const letterCount = 0;
-
-  startingLines(guessedWord, wordLength);
-
-  console.log(guessedWord.join(' '));
-
-  winOrLost(
-    failures,
-    letterCount,
-    wordLength,
-    revealedWord,
-    guessedWord,
-    letterCount
-  );
-}
-
-function hangman() {
-  // selects random index for word bank
-  const randomChoice = Math.floor(Math.random() * wordBank.length);
-  // contains length of the word
-  const wordLength = wordBank[randomChoice].length;
-  const revealedWord = wordBank[randomChoice].split('');
-  game(wordLength, revealedWord);
 }
 
 hangman();
