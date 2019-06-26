@@ -9,6 +9,7 @@ const wordBank = [
   'computer',
 ];
 
+// Input the starting lines for the game
 function startingLines(guessedWord, wordLength) {
   for (let i = 0; i < wordLength; i++) {
     guessedWord.push('_');
